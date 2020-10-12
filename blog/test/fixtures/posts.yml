@@ -3,11 +3,13 @@
 one:
   title: MyString
   genre: MyString
+  author: MyString
   description: MyText
   pages: 1
 
 two:
   title: MyString
   genre: MyString
+  author: MyString
   description: MyText
   pages: 1

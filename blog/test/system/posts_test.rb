@@ -14,6 +14,7 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "New Post"
 
+    fill_in "Author", with: @post.author
     fill_in "Description", with: @post.description
     fill_in "Genre", with: @post.genre
     fill_in "Pages", with: @post.pages
@@ -28,6 +29,7 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "Edit", match: :first
 
+    fill_in "Author", with: @post.author
     fill_in "Description", with: @post.description
     fill_in "Genre", with: @post.genre
     fill_in "Pages", with: @post.pages
