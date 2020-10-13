@@ -3,6 +3,6 @@ class Author
   field :name, type: String
   field :age, type: Integer
   field :details, type: String
-  has_many :posts
   field :_id, type: String, default: ->{ name }
+  has_many :posts
 end

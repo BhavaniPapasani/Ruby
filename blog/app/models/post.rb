@@ -5,6 +5,6 @@ class Post
   field :author, type: String
   field :description, type: String
   field :pages, type: Integer
-  belongs_to :authors
   validates_presence_of :title
+  belongs_to :author, :optional => true
 end
