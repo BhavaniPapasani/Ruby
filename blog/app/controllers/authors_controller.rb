@@ -21,6 +21,16 @@ class AuthorsController < ApplicationController
   def edit
   end
 
+
+  def postsbyauthor
+    @authors = Author.all
+    # @author = Author.find(params[:id])
+    author_id =params[:author_id]
+    puts "params =>" + author_id&.to_s
+    @posts = Post.where(author_id: author_id).all
+  end
+
+  
   # POST /authors
   # POST /authors.json
   def create

@@ -20,6 +20,7 @@
         <td><%= author.name %></td>
         <td><%= author.age %></td>
         <td><%= author.details %></td>
+        <td><%= link_to 'Posts by author', postsbyauthor_authors_path(author_id: author.id, author_name: author.name)%></td>
         <td><%= link_to 'Show', author %></td>
         <td><%= link_to 'Edit', edit_author_path(author) %></td>
         <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,4 +32,4 @@
 <br>
 
 <%= link_to 'New Author', new_author_path %><br>
-<a href="http://localhost:3000/posts">Posts</a>
+<a href="http://localhost:3000/posts">Posts</a><br>
