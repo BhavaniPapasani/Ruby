@@ -20,7 +20,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @author = Author.find(params[:id])
   end
 
   # POST /posts
