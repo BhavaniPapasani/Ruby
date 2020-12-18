@@ -1,0 +1,66 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    :css
+      .container1 {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        border: 3px solid;
+        top: 30%;
+        left: 45%;
+        width: 30%;
+        margin-top: -8em;
+        margin-left: -15em;
+        position: fixed;
+        vertical-align: middle;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+      h3 {
+        text-align: center;
+      }
+      div {
+        text-color: #000000;
+      }
+  %body
+    .container1
+      %h3 Lumiseek
+      %br/
+      .row
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+            = f.label :name
+            %br/
+            = f.text_field :name
+          .field
+            = f.label :first_name
+            %br/
+            = f.text_field :first_name
+          .field
+            = f.label :last_name
+            %br/
+            = f.text_field :last_name
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .field
+            = f.label :password
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, autocomplete: "new-password"
+          .field
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .actions
+            = f.submit "Sign up"
+            %br/
+          = render "devise/shared/links"

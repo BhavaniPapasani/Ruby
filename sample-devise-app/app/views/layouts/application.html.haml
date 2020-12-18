@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    = javascript_include_tag :application
+    %title Blog
+    = csrf_meta_tags
+    = csrf_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap", :rel => "stylesheet"}/
+  %body
+    %p
+      \/
+    %header
+      %nav
+        %ul
+          - if user_signed_in?
+            %li= link_to 'Users', users_path
+            %li= link_to 'Posts', posts_path
+            %li= link_to 'Authors', authors_path
+            %li= button_to "Sign Out", destroy_user_session_path, method: :delete
+    = yield

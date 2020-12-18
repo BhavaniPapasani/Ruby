@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    :css
+      .div {
+          text-align: center;
+          position: absolute;
+          width: 50%;
+          left: 320px;
+          bottom: 390px;
+      }
+      h2 {
+        text-align: left;
+      }
+  %body
+  %h2 New User
+  %br/
+  = render 'admin_form'
+  .div
+    = link_to 'Back', users_path

@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    :css
+      .container {
+          text-align: right;
+      }
+      h1 {
+        text-align: center;
+        position: absolute;
+        width: 50%;
+        left: 15px;
+        bottom: 820px;
+      }
+  %body
+  .container
+    %h1 Authors
+    %br/
+    = link_to 'Add Author', new_author_path
+    %br/
+    %table.table.table-striped.sortable
+      %thead
+        %tr
+          %th Name
+          %th Age
+          %th Details
+          %th{:colspan => "3"}
+      %tbody
+        - @authors.each do |author|
+          %tr
+            %td
+              = author.name
+            %td
+              = author.age
+            %td
+              = author.details
+            %td
+              = link_to 'Posts by author', postsbyauthor_authors_path(author_id: author.id, author_name: author.name)
+            %td
+              %a{ href: "#{edit_author_path(id: author.id)}", :title => 'Edit' }
+                %i.fa.fa-pencil-square-o{:style => "font-size:20px"}>
+            %td
+              %a.btn-delete{{ href: author_path(id: author.id)}, data: { remote: true, method: 'delete'}, 'data-confirm': 'Are you sure to remove the author?' }
+                %i.fa.fa-trash{:style => "font-size:20px"}>

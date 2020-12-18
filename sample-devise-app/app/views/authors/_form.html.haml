@@ -1,0 +1,49 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    :css
+      .container {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        border: 2px solid;
+        top: 40%;
+        left: 45%;
+        width: 25%;
+        height: 40%;
+        margin-top: -8em;
+        margin-left: -15em;
+        position: fixed;
+        vertical-align: middle;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+  %body
+    .container
+      = form_for(@author) do |f|
+        - if author.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(author.errors.count, "error")
+              prohibited this author from being saved:
+            %ul
+              - author.errors.full_messages.each do |message|
+                %li
+                  = message
+        .field
+          = f.label :Name
+          %br/
+          = f.text_field :name
+        .field
+          = f.label :age
+          %br/
+          = f.number_field :age
+        .field
+          = f.label :details
+          %br/
+          = f.text_area :details
+        .actions
+          = f.submit

@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    :css
+      .container {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        border: 2px solid;
+        top: 40%;
+        left: 45%;
+        width: 28%;
+        height: 40%;
+        margin-top: -8em;
+        margin-left: -15em;
+        position: fixed;
+        vertical-align: middle;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+  %body
+    .container
+      = form_for(@user, :url => '/users/admin_create') do |f|
+        - if @user.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@user.errors.count, "error")
+              prohibited this user from being saved:
+            %ul
+              - @user.errors.full_messages.each do |message|
+                %li= message
+        .field
+          = f.label :Name
+          %br/
+          = f.text_field :name
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email
+        .actions
+          = f.submit

@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    :css
+      .div {
+          text-align: center;
+          position: absolute;
+          width: 50%;
+          left: 340px;
+          bottom: 260px;
+      }
+      h2 {
+        text-align: left;
+      }
+  %body
+    %h2 Editing Post
+    %br/
+    = render 'form'
+  .div
+    = link_to 'Show', @post
+    |
+    \#{link_to 'Back', posts_path}

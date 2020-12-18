@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    :css
+      .div {
+          text-align: center;
+          position: absolute;
+          width: 50%;
+          left: 290px;
+          bottom: 340px;
+      }
+      h2 {
+        text-align: left;
+      }
+  %body
+  %h2 New Author
+  %br/
+  = render 'form', author: @author
+  .div 
+    = link_to 'Back', authors_path
